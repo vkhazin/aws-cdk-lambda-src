@@ -17,7 +17,6 @@
 ## Download and repackage Artifact
 
 - `aws codeartifact get-package-version-asset --domain ${CODEARTIFACT_DOMAIN} --repository ${CODEARTIFACT_REPOSITORY} --format pypi --package ${CODEARTIFACT_PACKAGE} --package-version ${CODEARTIFACT_VERSION} --asset ${CODEARTIFACT_PACKAGE}-${CODEARTIFACT_VERSION}.tar.gz $./dist/{CODEARTIFACT_PACKAGE}.tar.gz`
-- 
 - `mkdir -p ./dist/${CODEARTIFACT_PACKAGE}`
 - `tar -xvzf ./dist/${CODEARTIFACT_PACKAGE}.tar.gz -C ./dist/${CODEARTIFACT_PACKAGE}`
 - `ls ./dist/${CODEARTIFACT_PACKAGE}`
