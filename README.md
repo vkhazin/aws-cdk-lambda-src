@@ -9,6 +9,14 @@
 
 ## Package & Publish
 
+* Set environment variables:
+```
+export CODEARTIFACT_DOMAIN=pall
+export CODEARTIFACT_REPOSITORY=apollo
+export CODEARTIFACT_PACKAGE="lambda-function"
+export CODEARTIFACT_VERSION="1.0.1"
+
+```
 [package-n-publish.sh](./scripts/publish-n-package.sh)
 
 ## Download and repackage Artifact
