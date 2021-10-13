@@ -5,7 +5,7 @@ from kafka import KafkaProducer
 def handler(event, context):
     print(event)
     print(datetime.datetime.now())
-    producer = KafkaProducer(bootstrap_servers='localhost:1234')
+    producer = KafkaProducer(bootstrap_servers='google.com:1234')
     return {
             "statusCode": 200,
             "headers": {

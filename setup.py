@@ -6,7 +6,7 @@ with open("README.md") as fp:
 setuptools.setup(
     name="lambda-function",
     version="1.0.1",
-    description="A small lambda package",
+    description="A lambda package with dependencies",
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
@@ -16,8 +16,5 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    install_requires=[
-        "datetime"
-    ],
     python_requires=">=3.6",
 )

@@ -1,22 +1,20 @@
 # Lambda Function for AWS_CDK
 
-## Pre-requisites
+## Development
 
-- `python3 -m pip install --upgrade build`
-- `python3 -m pip install --upgrade twine`
+- `python3 -m venv .venv`
+- `. ./.venv/bin/activate`
+- `python3 -m pip install -r ./src/lambda-function/requirements.txt`
 
-## Package
 
-- `python3 -m build`
+## Package & Publish
 
-## Deploy to CodeArtifact
-
-- `aws codeartifact login --tool twine --domain ${CODEARTIFACT_DOMAIN} --repository ${CODEARTIFACT_REPOSITORY}`
-- `twine upload --repository codeartifact dist/*.tar.gz`
+[package-n-publish.sh](./scripts/publish-n-package.sh)
 
 ## Download and repackage Artifact
 
-- `aws codeartifact get-package-version-asset --domain ${CODEARTIFACT_DOMAIN} --repository ${CODEARTIFACT_REPOSITORY} --format pypi --package ${CODEARTIFACT_PACKAGE} --package-version ${CODEARTIFACT_VERSION} --asset ${CODEARTIFACT_PACKAGE}-${CODEARTIFACT_VERSION}.tar.gz $./dist/{CODEARTIFACT_PACKAGE}.tar.gz`
-- `mkdir -p ./dist/${CODEARTIFACT_PACKAGE}`
-- `tar -xvzf ./dist/${CODEARTIFACT_PACKAGE}.tar.gz -C ./dist/${CODEARTIFACT_PACKAGE}`
-- `ls ./dist/${CODEARTIFACT_PACKAGE}`
+[prepare-zip.sh](./scripts/prepare-zip.sh)
+
+## Delete Artifact from Repository
+
+- `aws codeartifact delete-package-versions --domain ${CODEARTIFACT_DOMAIN} --repository ${CODEARTIFACT_REPOSITORY} --format pypi --package ${CODEARTIFACT_PACKAGE} --versions ${CODEARTIFACT_VERSION}`
